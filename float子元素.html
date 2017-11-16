@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf8">
+	<title>float子元素,影响父元素的解决方案</title>
+	<style type="text/css">
+	div{padding:10px;border:1px solid #ddd;width:300px;float:right;}
+	/*① ---->给父元素添加 overflow:hidden; 属性*/ 
+	/*② ---->给父元素添加 display:table;属性 */ 
+	/*③---->给父元素添加 float:left; 属性*/
+	/*④ ---->使用:after伪类选择器，给父元素添加一个子元素 并设置清除浮动;并设置display属性值不是inline即可*/ 
+/*	div:after{
+		content:'';
+		clear:both;
+		display:table;
+		/*display:block;*/
+		/*display:inline-block;*/
+	/*}*/
+	li{list-style:none}
+	li:nth-child(1){float:left;}
+	li:nth-child(2){float:right;}
+	</style>
+
+</head>
+<body>
+	<h1>子元素浮动后对父元素的影响---->的解决方法</h1>
+
+<div>
+	<li >float:left</li>
+	<li >float:right</li>
+</div>
+
+</body>
+</html>
