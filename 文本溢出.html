@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<meta charset="utf-8">
+	<title></title>
+	<body>
+		<style >
+			
+			*{padding:0;margin:20px auto;border:1px solid #ddd;}
+			html,body{border:0;}
+			/* 单行文本溢出 兼容到IE5-6-7-8-9-10-11*/
+			dd{width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+			/* 多行文本溢出 */
+			/* 第一种：使用css3 属性;在微信中可以使用,和移动端可以使用 ->不兼容IE浏览器*/
+			div{width:200px;font-size:14px;
+				overflow: hidden;
+			    text-overflow: ellipsis;
+			    display: -webkit-box;
+			    -webkit-line-clamp: 2;
+			    -webkit-box-orient: vertical;
+			}
+			/*第二种:这里用css的伪类有些问题-->当内容过少时还会出现伪类元素；可以使用js处理多行文本溢出*/
+			p{
+				width:200px;
+				height:40px;
+				line-height:20px;
+				overflow: hidden;
+				position:relative;
+			}
+			p:after{display:inline;content:'...';font-size:14px;position:absolute;bottom:0;right:-2px;}
+			/*第三种：使用js处理多行文本溢出 */
+			dt{width:230px;}
+		</style>
+		<div>到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶</div>
+		<p>到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶</p>
+		<p>屏幕顶部的距离到屏幕顶部的距离到屏幕顶</p>
+		<dd style="width:">到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶</dd>
+		<dt id="moreLine">到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶部的距离到屏幕顶</li>
+
+		<script>
+	
+			function moreLineFun(el){ //el 的单位不能使用百分比
+				var contain = document.getElementById(el); 
+		 		// window.getComputedStyle  -->IE9    其中IE9一下只支持contain.currentStyle
+				var num=Math.round(
+					parseInt(
+						// contain.currentStyle?parseFloat(contain.currentStyle.width) * 1920 / 100 : window.getComputedStyle(contain, null).width)/8
+						contain.currentStyle?contain.currentStyle.width : window.getComputedStyle(contain, null).width)/8
+					); 
+				console.log('num='+num)
+				var txt = contain.innerHTML;
+				if(txt.length>num){ 
+					txt = txt.substring(0,num-2)+"...";
+					contain.innerHTML = txt; 
+				}
+			}moreLineFun('moreLine');
+
+		</script>
+	</body>
+</html>
