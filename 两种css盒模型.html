@@ -1,2 +1,13 @@
-在CSS的和模型中主要有：①标准和模型，②IE中的怪异和
-模型这两种
+在CSS的和模型中主要有：①标准和模型，②IE中的怪异和模型这两种。
+标准盒模型：是W3c推荐的，也是webkit(Chrome)和Gecko(火狐)内核的浏览器所使用的。
+IE中的怪异的和模型:是IE浏览器一直使用的模型；
+
+因为在实际的浏览器所渲染的时候，所有的浏览器的内核都是兼容IE浏览器的怪异的盒模型的，
+
+所以：在平常书写css时，要兼容其他的浏览器,将浏览器的渲染的盒模型都改成IE浏览器的怪异和模型；
+*{box-sizing:border-box;}
+
+在设置box-sizing:border-box;属性后,元素的offsetWidth和offsetHeight属性值都会发生改变;
+el.offsetWidth= el.style.border + el.style.padding + el.content
+
+
