@@ -1,81 +1,81 @@
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
+<title>0.5px的细线边框</title>
+<style>
+*{margin: 0;padding: 0;box-sizing:border-box;}
+p,h3,div{width:600px;margin:15px auto;}
+/*第一种、使用渐变来做*/
+/*注意：兼容性问题*/
+.little-line1{ position:relative;}
+.little-line1:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(0deg, transparent 50%, red 50%);
+   /* background-image: -webkit-linear-gradient(0deg, transparent 50%, red 50%);
+    background-image: -ms-linear-gradient(0deg, transparent 50%, red 50%);
+    background-image: -o-linear-gradient(0deg, transparent 50%, red 50%); */
+ }
+ /*第二种、使用缩放来做,也是weUI做的方式；*IE9-不支持transform属性*/
+.little-line2{ position:relative;font-size:25px;padding: 0 10px;}
+.little-line2:after {
+    content: "";
+    position: absolute;
+    left: 0;right:0;
+    top: 0;
+    height: 1px;
+    background: blue;
+    /* 如果不用 background-color, 使用 border-top:1px solid blue; */
+    -webkit-transform: scaleY(.5);
+    -ms-transform: scaleY(.5);
+    transform:scaleY(.5);
+ }
+.little-line2:before {
+	content:""; 
+	position: absolute;left: 0;right: 0;
+    height:200%; 
+    border:1px solid #ddd;
+    border-radius:10px;  /*IE8中不支持border-radius*/
+    -webkit-border-radius: 10px;
+    -ms-transform-origin: 0 0; 
+    -ms-transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0; 
+    -webkit-transform: scaleY(0.5);
+    transform-origin: 0 0; 
+    transform: scaleY(0.5);  
+}
 
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
+.btn{
+    width: 200px;
+    height: 42px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 42px;
+    background-color: #EDEDED;
+    border: 1px solid red;
+}
 
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
+</style>
+</head>
+<body>
+<p>第一种方法:采用背景渐变的方式(IE10+)，
+<br>background: linear-gradient(0deg, transparent 50%, red 50%)
+</p>
+<div class="little-line1"></div>
 
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
+<h3>第二种方法：使用缩放来做,也是weUI做的方式(IE9+)： /*IE9-不支持transform属性*/
+<br>transform-origin: 0 0;    
+     transform: scale(0.5, 0.5);</h3>
+<div class="little-line2"> transform:scaleX(.5)</div>
+<div class="btn">参照btn --- 1px</div>
+</body>
 </html>
