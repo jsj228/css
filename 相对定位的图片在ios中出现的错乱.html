@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
+<title>在ios系统中相对定位的图片 会出现定位错乱</title>
+
+
+<h3>在ios系统中相对定位的图片 会出现定位错乱</h3>
+<div style="position:relative">
+	<img src="__DOMAIN____UPLOAD__/coin/{$coin_list[$xnb]['img']" style="position:absolute;left:40px;top:10px">
+	<select name="type" id="coin-select" style="padding-left:40px;background:#161f2b;background-size:26px;">
+		<option value="cny"  selected="selected"  >{:L('CNY')} (CNY)</option>
+	</select>
+</div>
+<h3>解决方案：使用背景图添加</h3>
+	<select name="type" id="coin-select" style="padding-left:40px;background:url(__DOMAIN____UPLOAD__/coin/{$coin_list[$xnb]['img']}) no-repeat 10px #161f2b;background-size:26px;">
+	<option value="cny"  selected="selected">{:L('CNY')} (CNY)</option>
+</select>
+</body>
+</html>
