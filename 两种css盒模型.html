@@ -16,14 +16,14 @@ el.offsetWidth= el.style.border + el.style.padding + el.style.width；
 	p{box-sizing:border-box;width:500px;border:5px solid #ddd;padding:50px;}
 	div{box-sizing:content-box;width:500px;border:5px solid #ddd;padding:50px;}
 </style>
-<p>border-box</p>
+<p name='p'>border-box</p>
 <div>默认值box-sizing:content-box</div>
 <script>
     var elP=document.getElementsByTagName('p')[0];
     var elDiv=document.getElementsByTagName('div')[0];
-    
-	console.log(elP.offsetWidth);
-    console.log(elDiv.offsetWidth);   //elDiv.offsetWidth= 500+5*2+50*2
-    
-    
+    var elpWidth=parseFloat(elP.currentStyle?elP.currentStyle.width : window.getComputedStyle(elP, null).width)
+    var elDivWidth=parseFloat(elDiv.currentStyle?elDiv.currentStyle.width : window.getComputedStyle(elDiv, null).width)
+
+	console.log(elP.offsetWidth == elpWidth); //true
+    console.log(elDiv.offsetWidth == (elDivWidth + 10 + 100));  //true  //elDiv.offsetWidth= 500+5*2+50*2
 </script>
