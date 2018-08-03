@@ -1,13 +1,29 @@
-在CSS的和模型中主要有：①标准和模型，②IE中的怪异和模型这两种。
-标准盒模型：是W3c推荐的，也是webkit(Chrome)和Gecko(火狐)内核的浏览器所使用的。
+在CSS的和模型中主要有：①IE中的怪异盒模型，②标准盒模型这两种。
+
+
 IE中的怪异的和模型:是IE浏览器一直使用的模型；
-
 因为在实际的浏览器所渲染的时候，所有的浏览器的内核都是兼容IE浏览器的怪异的盒模型的，
-
 所以：在平常书写css时，要兼容其他的浏览器,将浏览器的渲染的盒模型都改成IE浏览器的怪异和模型；
 *{box-sizing:border-box;}
+在设置box-sizing:border-box;属性后,元素的offsetWidth(只读)和offsetHeight(只读)属性值都会发生改变
+el.offsetWidth=el.style.width
 
-在设置box-sizing:border-box;属性后,元素的offsetWidth和offsetHeight属性值都会发生改变;
-el.offsetWidth= el.style.border + el.style.padding + el.content
+标准盒模型：是W3c推荐的，也是webkit(Chrome)和Gecko(火狐)内核的浏览器所使用的。
+el.offsetWidth= el.style.border + el.style.padding + el.style.width；
 
-
+例如：
+<style>
+	p{box-sizing:border-box;width:500px;border:5px solid #ddd;padding:50px;}
+	div{box-sizing:content-box;width:500px;border:5px solid #ddd;padding:50px;}
+</style>
+<p>border-box</p>
+<div>默认值box-sizing:content-box</div>
+<script>
+    var elP=document.getElementsByTagName('p')[0];
+    var elDiv=document.getElementsByTagName('div')[0];
+    
+	console.log(elP.offsetWidth);
+    console.log(elDiv.offsetWidth);   //elDiv.offsetWidth= 500+5*2+50*2
+    
+    
+</script>
