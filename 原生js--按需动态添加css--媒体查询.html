@@ -28,3 +28,9 @@
 		}
 	}
 </script>
+在不同的设备中加载不同的图片文件
+<picture>
+   <source srcset="pic1.png" media="(max-width: 600px)">
+   <source srcset="pic2.png" media="(max-width: 800px)">
+   <img srcset="pic3.png" alt="pic">
+</picture>
