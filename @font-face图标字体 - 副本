@@ -1,0 +1,195 @@
+　一、准备工作
+
+　　1、首先，进入阿里的矢量图标库，在这个图标库里面可以找到很多图片资源，当然了需要登录才能下载或者使用，用GitHub账号或者新浪微博账号登录都可以
+　　2、登录以后，可以搜索自己需要的资源，然后直接下载使用，或者建立图标库然后再使用，例如这里以删除的图标为例
+　      a) 搜索图标
+　　    b) 添加入库
+　　    c) 点击右上角的购物车,进入购物车
+　　    d) 添加至项目（建立一个自己的图标库）---->需要点击+号的图标创建一个新项目，然后把新图标加入到新项目中
+　　    e) 进入到我的项目（图标库）中，可以看到如下页面
+    3、下载至本地：在下载到本地的代码中找到demo，demo的html文件中有这三种方式的详细使用说明
+　　    三种使用的方式：Unicode、Fontclass以及Symbol：
+　　  点击查看在线链接：在页面上可以看到一串字符串.css，这个就是这个图标库的在线链接，在实际项目中引入该链接即可使用而无需下载到本地（这个是FontClass的，Unicode跟Symbol的有属于自己的在线链接）
+  　　需要注意的是，如果在图标库中新增加了图标，则需要更新在线链接并把该链接重新引入到实际项目中，或者重新下载代码到本地，然后在实际项目中引入最新的iconfont文件
+
+　　二、使用介绍
+　　以下的使用方式都是来自下载下来的demo代码，把这些都整合在一起，方便比较和查阅。至于使用在线链接的方式，因为比较简单，这里就不做介绍，可以看下面的实战
+　　1、Unicode方式
+      Unicode是字体在网页端最原始的应用方式，特点是：
+          •兼容性最好，支持ie6+，及所有现代浏览器
+          •支持按字体的方式去动态调整图标大小，颜色等等
+          •不支持多色。只能使用平台里单色的图标，就算项目里有多色图标也会自动去色
+      注意：新版iconfont支持多色图标，这些多色图标在Unicode模式下将不能使用，如果有需求建议使用Symbol的引用方式
+      使用步骤如下：
+      a) 拷贝项目下面生成的font-face，如果想要深入了解font-face属性，可以点击这里还有here
+          @font-face {
+            font-family: 'iconfont';
+            src: url('iconfont.eot');
+            src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+                 url('iconfont.woff') format('woff'),
+                 url('iconfont.ttf') format('truetype'),
+                 url('iconfont.svg#iconfont') format('svg');
+          }
+      b) 定义使用iconfont的样式
+          .iconfont{
+            font-family:"iconfont" !important;
+            font-size:16px;
+            font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+          }
+　　c) 挑选相应图标并获取字体编码，应用于页面
+　　      <i class="iconfont">&#x33;</i> <!--"iconfont"是你项目下的font-family，默认是"iconfont"-->
+　　          &#x33;是字体编码，可在下载的demo.html中查看，或者可以在阿里矢量图标库的网站上，进入我的项目查看
+2、FontClass方式
+　　FontClass是Unicode使用方式的一种变种，主要是解决Unicode书写不直观，语意不明确的问题。与Unicode使用方式相比，具有如下特点：
+        •兼容性良好，支持ie8+，及所有现代浏览器
+        •相比于Unicode语意明确，书写更直观。可以很容易分辨这个icon是什么
+        •因为使用class来定义图标，所以当要替换图标时，只需要修改class里面的unicode引用即可
+        •因为本质上还是使用的字体，所以多色图标还是不支持
+　　使用步骤如下：
+　　a) 引入项目下面生成的fontclass代码
+      <link rel="stylesheet" type="text/css" href="./iconfont.css">
+      iconfont.css代码里包含了@font-face、.iconfont以及图标的unicode引用，其实对比下可以发现Unicode方式和FontClass方式是极其相似的，
+      只不过他们一个用的是图标的字体编码，一个用的是图标的unicode引用而已
+          @font-face {font-family: "iconfont";
+            src: url('iconfont.eot?t=1495209181038'); /* IE9*/
+            src: url('iconfont.eot?t=1495209181038#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('iconfont.woff?t=1495209181038') format('woff'), /* chrome, firefox */
+            url('iconfont.ttf?t=1495209181038') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+            url('iconfont.svg?t=1495209181038#iconfont') format('svg'); /* iOS 4.1- */
+          }
+          .iconfont {
+            font-family:"iconfont" !important;
+            font-size:16px;
+            font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          .icon-enter:before { content: "\e601"; }
+          .icon-setUp:before { content: "\e600"; }
+　　  b) 挑选相应图标并获取类名，应用于页面
+    　　<i class="iconfont icon-xxx"></i> <!--"iconfont"是你项目下的font-family，默认是"iconfont"-->
+    　　icon-xxx是使用了unicode引用的类名，可在下载的demo.html中查看，或者可以在阿里矢量图标库的网站上，进入我的项目查看。xxx是图标的名字，你可以在网站上修改图标的名字（FontClass和Symbol都可以），但是切记如果你使用了在线链接，则必须在网站上更新在线链接，然后将该链接更新到你的项目中，如果你是本地使用，则必须下载最新的代码，然后更新到你的项目中，否则修改无效
+3、Symbol方式
+　　这是一种全新的使用方式，应该说这才是未来的主流，也是阿里矢量图标库平台目前推荐的用法，但是在前端，新技术要向老设备看齐，所以你懂得。 这种用法其实是做了一个svg的集合，与另外两种相比具有如下特点：
+    •支持多色图标了，不再受单色限制
+    •通过一些技巧，支持像字体那样，通过font-size,color来调整样式（对于前两种也是同样适用的，fontsize改变大小，color改变颜色）
+    •兼容性较差，支持 ie9+，及现代浏览器
+    •浏览器渲染svg的性能一般，还不如png
+　　
+  使用步骤如下：
+　　a) 引入项目下面生成的Symbol代码
+　　<script src="./iconfont.js"></script>
+　　b) 加入通用css代码（引入一次就行）
+      .icon {
+         width: 1em; height: 1em;
+         vertical-align: -0.15em;
+         fill: currentColor;
+         overflow: hidden;
+      }
+　　c) 挑选相应图标并获取类名，应用于页面
+　　<svg class="icon" aria-hidden="true">
+  　　<use xlink:href="#icon-xxx"></use>
+　　</svg>
+三、实战
+示例1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iconfont</title>
+    <style type="text/css">
+        @font-face { /* 实际使用中是各用各的，这里不想写那么多例子，所以就共用了一个，并不推荐这样 */
+            font-family: "iconfont";
+            src: url('css/iconfont/iconfont.eot?t=1495209181038'); /* IE9*/
+            src: url('css/iconfont/iconfont.eot?t=1495209181038#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('css/iconfont/iconfont.woff?t=1495209181038') format('woff'), /* chrome, firefox */
+            url('css/iconfont/iconfont.ttf?t=1495209181038') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+            url('css/iconfont/iconfont.svg?t=1495209181038#iconfont') format('svg'); /* iOS 4.1- */
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:16px;font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .icon-sendMsg:before { content: "\e60c"; }
+        
+　　　　 .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <script type="text/javascript" src="css/iconfont/iconfont.js"></script>
+</head>
+<body>
+    <div style="width: 100%;text-align: center;">
+        <p><i class="iconfont">&#xe60c;</i>Unicode</p>
+        <p><i class="iconfont icon-sendMsg"></i>FontClass</p>
+        <p style="font-size: 3em;">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-sendMsg"></use>
+            </svg>
+            Symbol
+        </p>
+    </div>
+</body>
+</html>
+示例2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iconfont</title>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_kpdcqplvwqwr8uxr.css"><!-- fontclass -->
+    <style type="text/css">
+        @font-face { /* Unicode */
+            font-family: 'iconfont';  /* project id 293930 */
+            src: url('http://at.alicdn.com/t/font_kpdcqplvwqwr8uxr.eot');
+            src: url('http://at.alicdn.com/t/font_kpdcqplvwqwr8uxr.eot?#iefix') format('embedded-opentype'),
+            url('http://at.alicdn.com/t/font_kpdcqplvwqwr8uxr.woff') format('woff'),
+            url('http://at.alicdn.com/t/font_kpdcqplvwqwr8uxr.ttf') format('truetype'),
+            url('http://at.alicdn.com/t/font_kpdcqplvwqwr8uxr.svg#iconfont') format('svg');
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:16px;font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .icon-sendMsg:before { content: "\e60c"; }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+        p{
+            color: #fff;
+        }
+    </style>
+    <script type="text/javascript" src="http://at.alicdn.com/t/font_kpdcqplvwqwr8uxr.js"></script><!-- Symbol -->
+</head>
+<body>
+    <div style="width: 100%;text-align: center;background: #000;padding: 20px 0;">
+        <p><i class="iconfont">&#xe60c;</i>Unicode</p>
+        <p><i class="iconfont icon-sendMsg"></i>FontClass</p>
+        <p style="font-size: 3em;">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-sendMsg"></use>
+            </svg>
+            Symbol
+        </p>
+    </div>
+</body>
+</html>
+转载请注明出处：http://www.cnblogs.com/fashandian/p/6880892.html
