@@ -1,7 +1,6 @@
-css常用单位：px（像素）、pt（磅）、in（寸：1in = 96px  1in = 72pt）、em（相对单位，基准点为父节点字体的大小）、rem、vw、vh、vmin、vmax、%、ex、ch、cm、mm
+css常用单位：px（像素）、pt（磅）、in（寸：1in = 96px  1in = 72pt）、em（相对单位，基准点为父节点字体的大小）、rem、vw、vh、     vmin、vmax、%、ex、ch、cm、mm
 
-px（像素）：是显示屏上显示的每一个小点，为显示的最小单位。
-
+  px(像素)：是显示屏上显示的每一个小点，为显示的最小单位。
  em 的使用：
          <div style="font-size:10px;">HHHHHHHHHHHHHH
             <div style="font-size:1.8em;">HHHHHHHHHHHHHH
@@ -11,10 +10,10 @@ px（像素）：是显示屏上显示的每一个小点，为显示的最小单
 rem 的使用："r"="root"，意思是1rem等于根元素的字体大小。
         大部分情况下，根元素等于html元素
         html{font-size:64px;}//html默认设定值为16px
-        <div style="font-size:64px;">HHHHHHHHHHHHHH</div>
-        <div style="font-size:1rem;">HHHHHHHHHHHHHH</div>
-        <div style="font-size:0.5rem;">HHHHHHHHHHHHHH</div>
-        <div style="font-size:32px;">HHHHHHHHHHHHHH</div>
+        <div style="display:inline-block;width:10rem;font-size:64px">HHHHHH</div><br>
+        <div style="display:inline-block;width:10rem;font-size:1rem;">HHHHHH</div><br>
+        <div style="display:inline-block;width:10rem;font-size:0.5rem;">HHHHHH</div><br>
+        <div style="display:inline-block;width:10rem;font-size:32px;">HHHHHH</div>
         抛出的问题：什么情况下，根元素不等于html元素
  vw 的使用：1vw等于视觉窗口宽度的1%  
     <body style="margin:0;">
@@ -26,5 +25,3 @@ rem 的使用："r"="root"，意思是1rem等于根元素的字体大小。
       <div style="background:#ccc;height:10vh;">HHHHHHHHHHHHHH</div><hr>
       <div style="background:#ccc;height:10%;">HHHHHHHHHHHHHH</div>
     </body>
-
-
