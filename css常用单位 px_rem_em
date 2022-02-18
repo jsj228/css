@@ -1,6 +1,6 @@
-css常用单位：px（像素）、em（相对单位，基准点为父节点字体的大小）、rem、vw、vh、vmin、vmax、%、in（寸）、cm、mm、pt、ex、ch
+css常用单位：px（像素）、pt（磅）、em（相对单位，基准点为父节点字体的大小）、rem、vw、vh、vmin、vmax、%、in（寸：1in = 96px  1in = 72pt）、ex、ch、cm、mm
 
-px，pixel，像素。是显示屏上显示的每一个小点，为显示的最小单位。
+px（像素）：是显示屏上显示的每一个小点，为显示的最小单位。
+
 rem 的使用：
-
-1in = 96px
+（px  em rem vw&vh vmin&vmax）https://blog.csdn.net/qq_41655082/article/details/108281191
