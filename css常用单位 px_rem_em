@@ -2,5 +2,12 @@ css常用单位：px（像素）、pt（磅）、em（相对单位，基准点�
 
 px（像素）：是显示屏上显示的每一个小点，为显示的最小单位。
 
-rem 的使用：
+rem 的使用："r"="root"，意思是1rem等于根元素的字体大小。
+    大部分情况下，根元素等于html元素
+      html{font-size:64px;}//html默认设定值为16px
+      <p style="font-size:64px;margin:0;padding:0;">HHHHHHHHHHHHHH</p>
+      <div style="font-size:1rem;">HHHHHHHHHHHHHH</div>
+      <li style="font-size:0.5rem;">HHHHHHHHHHHHHH</li>
+      <li style="font-size:32px;">HHHHHHHHHHHHHH</li>
+    什么情况下，根元素不等于html元素
 （px  em rem vw&vh vmin&vmax）https://blog.csdn.net/qq_41655082/article/details/108281191
