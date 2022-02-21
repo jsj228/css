@@ -1,4 +1,4 @@
-css常用单位：px（像素）、pt（磅）、in（寸：1in = 96px  1in = 72pt）、em（相对单位，基准点为父节点字体的大小）、rem、vw、vh、     vmin、vmax、%、ex、ch、cm、mm
+css常用单位：px（像素）、pt（磅）、in（寸：1in = 96px  1in = 72pt）、em（相对单位，基准点为父节点字体的大小）、rem、vw、vh、     vmin、vmax、%、ex、ch
 
   px(像素)：是显示屏上显示的每一个小点，为显示的最小单位。
  em 的使用：
@@ -25,3 +25,8 @@ rem 的使用："r"="root"，意思是1rem等于根元素的字体大小。
       <div style="background:#ccc;height:10vh;">HHHHHHHHHHHHHH</div><hr>
       <div style="background:#ccc;height:10%;">HHHHHHHHHHHHHH</div>
     </body>
+vmin的使用：代表荧幕较短的一边
+  <img src="./logo.png" style="width:100vmin;">
+vmax的使用：代表荧幕较长的一边。
+  <img src="./logo.png" style="width:100vmax;">
+  
