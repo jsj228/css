@@ -7,12 +7,12 @@ css常用单位：px（像素）、pt（磅）、in（寸：1in = 96px  1in = 72
                 <div style="font-size:1.8em;"> HHHHHHHHHHHHHH</div>
             </div>
         </div>
-rem 的使用："r"="root"，意思是1rem等于根元素的字体大小。
-        大部分情况下，根元素等于html元素
-        html{font-size:64px;}//html默认设定值为16px
-        <div style="display:inline-block;width:10rem;font-size:64px">HHHHHH</div><br>
-        <div style="display:inline-block;width:10rem;font-size:1rem;">HHHHHH</div><br>
-        <div style="display:inline-block;width:10rem;font-size:0.5rem;">HHHHHH</div><br>
+rem 的使用：根元素html的字体大小有关。 
+        根元素html设置font-size:1px;的话，就相当于1px=1rem    因此，网页中的默认字体为：16rem；
+        html{font-size:1px;}
+        <div style="display:inline-block;width:10rem;font-size:64rem">HHHHHH</div><br>
+        <div style="display:inline-block;width:10rem;font-size:64px;">HHHHHH</div><br>
+        <div style="display:inline-block;width:10rem;font-size:32rem;">HHHHHH</div><br>
         <div style="display:inline-block;width:10rem;font-size:32px;">HHHHHH</div>
         抛出的问题：什么情况下，根元素不等于html元素
  vw 的使用：1vw等于视觉窗口宽度的1%  
