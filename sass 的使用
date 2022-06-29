@@ -1,0 +1,8 @@
+声明sass变量，统一管理样式
+
+$myFont: Helvetica, sans-serif;
+$myColor: red;
+$myFontSize: 18px;
+$myWidth: 680px;
+#container { font-family: $myFont;font-size: $myFontSize;color: $myColor;width: $myWidth;}
+ 
