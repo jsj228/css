@@ -1,3 +1,10 @@
+CSS引入三种方式
+1·内联的方式  <style type="text/css">  /*内联样式  */ </style>
+2·链接的方式  <link rel="stylesheet" href="./my.css" type="text/css"/>
+3·导入的方式  <style type="text/css">  @import ./home/my.css </style>
+
+
+
 1·内联首屏关键css
 2·异步加载css
 3·资源压缩
